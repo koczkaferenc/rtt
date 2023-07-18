@@ -1,0 +1,21 @@
+{% extends "layouts/basic-header.html" %}
+{% block body %}
+
+<div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Oops!</h4>
+    <p>The page you referred is not found: ({{ page }}).</p>
+    <hr>
+    <p class="mb-3">To contact us use one of the following:
+    </p>
+    {% if config['SITE']['address'] %}
+    <p><i class="fas fa-address-card text-warning"></i> Address: {{ config['SITE']['address'] }}</p>
+    {% endif %}
+    {% if config['SITE']['email'] %}
+    <p><i class="fas fa-envelope-open-text text-danger"></i> E-mail: {{ config['SITE']['email'] }}</p>
+    {% endif %}
+    {% if config['SITE']['phone'] %}
+    <p><i class="fas fa-phone-square text-info"></i> Phone: {{ config['SITE']['phone'] }}</p>
+    {% endif %}
+</div>
+
+{% endblock %}

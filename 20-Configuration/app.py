@@ -5,7 +5,6 @@ The config file and app.py must be placed in the same directory.
 '''
 from flask import Flask
 
-# Load our own configuration: instance_relative_config=True
 app = Flask(__name__)
 app.config.from_object('config')
 

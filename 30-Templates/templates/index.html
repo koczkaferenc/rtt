@@ -1,0 +1,8 @@
+{% extends "layouts/page.html" %}
+{% block body %}
+
+<h1>Demo Site</h1>
+{% if config['COMPANY_NAME'] %}<p>Company name: {{ config['COMPANY_NAME'] }}</p>{% endif %}
+<p>From Blueprint simle_page: <a href="/adatvedelem">Adatvédelem</a>
+
+    {% endblock %}
