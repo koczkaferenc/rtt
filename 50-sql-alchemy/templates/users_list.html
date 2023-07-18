@@ -1,0 +1,11 @@
+{% extends "layouts/basic-header.html" %}
+{% block body %}
+<h2>Felhasználók listája</h2>
+
+{% for user in users %}
+{{ user.id }}: {{ user.username }} ({{ user.email }})
+{% endfor %}
+
+<br>
+<a href="/">Vissza</a></p>
+{% endblock %}
