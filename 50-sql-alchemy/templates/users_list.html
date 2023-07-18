@@ -3,9 +3,8 @@
 <h2>Felhasználók listája</h2>
 
 {% for user in users %}
-{{ user.id }}: {{ user.username }} ({{ user.email }})
+<a href="/user_delete/{{ user.id }}">Törlés</a> {{ user.id }}: {{ user.username }} / {{ user.password }} ({{ user.email
+}})
 {% endfor %}
 
-<br>
-<a href="/">Vissza</a></p>
 {% endblock %}

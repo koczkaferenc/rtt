@@ -1,0 +1,11 @@
+{% extends "layouts/basic-header.html" %}
+{% block body %}
+<h2>Felhasználó adatlapja</h2>
+
+<form method="POST" action="/">
+    {{ form.csrf_token }}
+    {{ form.username.label }} {{ form.username(size=20) }}
+    <input type="submit" value="Go">
+</form>
+
+{% endblock %}
