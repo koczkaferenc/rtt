@@ -2,9 +2,16 @@
 {% block body %}
 <h2>Felhasználók listája</h2>
 
-{% for user in users %}
-<a href="/user_delete/{{ user.id }}">Törlés</a> {{ user.id }}: {{ user.username }} / {{ user.password }} ({{ user.email
-}})
-{% endfor %}
-
+<table>
+    {% for user in users %}
+    <tr>
+        <td><a href="/user_delete/{{ user.id }}">Törlés</a></td>
+        <td><a href="/user_form/{{ user.id }}">Szerkesztés</a></td>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.password }}</td>
+        </td>{{ user.email }}</td>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock %}

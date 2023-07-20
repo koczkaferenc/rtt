@@ -54,22 +54,30 @@ def users_list():
 
 
 @app.route('/user_form', methods=['POST', 'GET'])
-@app.route('/user_form/<int:id>')
+@app.route('/user_form/<int:id>', methods=['POST', 'GET'])
 def user_form(id=None):
     form = UserForm()
-    if request.method == "GET":
-        if id is not None:
-            u = db.session.query(User).get(id)
-            form.username = u.username
-        return render_template('user_form.html', config=app.config, form=form)
-    else:
-        u = db.session.query(User).get(id)
+    if request.method == "POST" and form.validate_on_submit():
+        u = User(username=form.username.data,
+                 password=form.password.data,
+                 email=form.email.data)
+        db.session.add(u)
+        db.session.commit()
+
+        # u = db.session.query(User).get(id)
         # form_title = request.form["title"]
         # form_year = request.form["year"]
         # movie = Movie(form_title, year=int(form_year) if form_year else None)
         # db = current_app.config["db"]
         # movie_key = db.add_movie(movie)
-        return redirect(url_for("movie_page", user=u))
+        return redirect(url_for("users_list"))
+
+    if id is not None:
+        u = db.session.query(User).get(id)
+        form.username.data = u.username
+        form.password.data = u.password
+        form.email.data = u.email
+    return render_template('user_form.html', config=app.config, form=form)
 
     form = UserForm()
     if form.validate_on_submit():

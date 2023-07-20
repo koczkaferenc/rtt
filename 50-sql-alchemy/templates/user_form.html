@@ -2,9 +2,20 @@
 {% block body %}
 <h2>Felhasználó adatlapja</h2>
 
-<form method="POST" action="/">
+<form method="POST">
     {{ form.csrf_token }}
-    {{ form.username.label }} {{ form.username(size=20) }}
+    <p>
+        {{ form.username.label }}
+        {{ form.username(size=20) }}
+    </p>
+    <p>
+        {{ form.password.label }}
+        {{ form.password(size=20) }}
+    </p>
+    <p>
+        {{ form.email.label }}
+        {{ form.email(size=20) }}
+    </p>
     <input type="submit" value="Go">
 </form>
 
