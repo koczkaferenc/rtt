@@ -2,7 +2,7 @@
 {% block body %}
 <h2>Felhasználó adatlapja</h2>
 
-<form method="POST">
+<form method="POST" action="{{ url_for('user_form', id=id) }}">
     {{ form.csrf_token }}
     <p>
         {{ form.username.label }}

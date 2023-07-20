@@ -1,7 +1,7 @@
 {% extends "layouts/basic-header.html" %}
 {% block body %}
 <h2>Felhasználók listája</h2>
-
+<a href="/user_form">Új</a>
 <table>
     {% for user in users %}
     <tr>
@@ -10,7 +10,7 @@
         <td>{{ user.id }}</td>
         <td>{{ user.username }}</td>
         <td>{{ user.password }}</td>
-        </td>{{ user.email }}</td>
+        <td>{{ user.email }}</td>
     </tr>
     {% endfor %}
 </table>
